@@ -1,0 +1,663 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="Héroes en tecnología y educación">
+	<meta name="keywords" content="HTML,CSS,XML,JavaScript,Alan Turing,Holberton,Betty,Bill,COBOL,ENIAC">
+    <meta name="author" content="Lina Maria Montaño Ramirez | Calypso Brontë 🔻🤓🦄">
+    <meta property="og:image" content="https://pbs.twimg.com/media/DwXINpfWkAApAWn.jpg:large">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="shortcut icon" href="https://raw.githubusercontent.com/calypsobronte/tributestephenHawking/master/calypsobronte.ico" type="image/x-icon">
+    <title>Héroes | Calypso Brontë 🔻🤓🦄</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+        
+    <style>
+    *{
+	margin:0;
+	padding:0;
+	-webkit-user-select:none;
+	-moz-user-select:none;
+	-o-user-select:none;
+	user-drag:none;
+	box-sizing:border-box!important;
+    }
+    
+
+    .footer {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    padding: 1rem;
+    background-color: #efefef;
+    text-align: center;
+    }
+
+    body{
+        font-family: 'Open Sans', tahoma, arial, Sans-serif;
+        }
+
+    #container{
+        width:100%;
+        min-height: 500px;
+        height:100vh;
+        position: relative;
+        background: #e2e2e2;
+        overflow: hidden;
+    }
+    #holder{
+        max-width: 700px;
+        width: 98%;
+        min-height: 360px;
+        height:360px;
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        margin: auto;
+    }
+    #image{
+        width: 40%;
+        height: 100%;
+        float: left;
+        position: relative;
+        z-index: 200;
+        background:;
+        box-shadow:0px 40px 120px 0px rgba(0,0,0,.52);
+        overflow: hidden;
+    }
+    #right{
+        width: 60%;
+        height: 100%;
+        float: right;
+        position: relative;
+    }
+    #text{
+        width: 60%;
+        height: 320px;
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        margin: auto;
+        z-index: 100;
+        background: rgba(9, 209, 241, 0.65);
+        box-shadow:0px 40px 120px 0px rgba(0,0,0,.52);
+    }
+    a{
+        /*display: block;*/
+        text-decoration: none;
+        outline: none;
+        outline-color: none;
+
+    }
+    nav{
+        width: 140px;
+        height: 50px;
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        margin:0 0 -25px -70px;
+        z-index: 1000;
+        box-shadow:0px 7px 24px 3px rgba(0,0,0,.52);
+    }
+    #leftBtn{
+        width:50%;
+        height: 100%;
+        float: left;
+        color: rgba(255,255,255,.57);
+        background:#1bc8e4b0;
+        font-size: 25px;
+        line-height: 200%;
+        text-align: center;
+        border-right:1px solid rgba(255,255,255,.57);
+        cursor: pointer;
+        -webkit-transition:all .3s ease-in;
+        -moz-transition:all .3s ease-in;
+        -o-transition:all .3s ease-in;
+        transition:all .3s ease-in;
+    }
+    #rightBtn{
+        width:50%;
+        height: 100%;
+        float: right;
+        color: rgba(255,255,255,.57);
+        background:#1bc8e4b0;
+        font-size: 25px;
+        line-height: 200%;
+        text-align: center;
+        border-left:1px solid rgba(255,255,255,.57);
+        cursor: pointer;
+        -webkit-transition:all .3s ease-in;
+        -moz-transition:all .3s ease-in;
+        -o-transition:all .3s ease-in;
+        transition:all .3s ease-in;
+    }
+    #leftBtn:hover,#rightBtn:hover{
+        color: #fff;
+    }
+    #nav-cirlces{
+        height: 20px;
+        position: absolute;
+        bottom: 8%;
+        left: 50%;
+        margin-left: -50px;
+    }
+    .circle{
+        width: 20px;
+        height: 100%;
+        float: left;
+        border-radius:100%;
+        border:2px solid #232323;
+        margin:0 6px;
+        cursor: pointer;
+        -webkit-transition:all .75s  cubic-bezier(.86,.3,.07,1);
+        -moz-transition:all .75s  cubic-bezier(.86,.3,.07,1);
+        -o-transition:all .75s  cubic-bezier(.86,.3,.07,1);
+        transition:all .75s  cubic-bezier(.86,.3,.07,1);
+    }
+    #centerText{
+        width: 100%;
+        height:200px;
+        position: absolute;
+        top: 50%;
+        margin-top:-100px;
+        padding: 10px 0;
+        overflow: hidden;
+    }
+    p{	
+        width: 100%;
+        height: 150px;
+        position: absolute;
+        top: 45px;
+        left: 0;
+        right: -150px;
+        bottom: 0;
+        margin: auto;	
+        font-size: 20px;
+        color: #232323;
+        padding: 0 25px;
+        text-align:center;
+        opacity: 0;
+        -webkit-transition:all 2s  cubic-bezier(.86,.3,.03,1) , opacity .7s cubic-bezier(.86,.3,.47,1) .3s;
+        -moz-transition:all 2s  cubic-bezier(.86,.3,.03,1) , opacity .7s cubic-bezier(.86,.3,.47,1) .3s;
+        -o-transition:all 2s  cubic-bezier(.86,.3,.03,1) , opacity .7s cubic-bezier(.86,.3,.47,1) .3s;
+        transition:all 2s  cubic-bezier(.86,.3,.03,1) , opacity .7s cubic-bezier(.86,.3,.47,1) .3s;
+    }
+    p.quote.active{
+        right:0;
+        opacity: 1;
+        background: transparent;
+    }
+    p.quote:nth-child(2){
+        top: 25px;
+    }
+    .active{
+        background: #232323;
+    }
+    .img{
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        right: -100%;
+        background-position: center !important;
+        background-size:cover;	
+        background-repeat: no-repeat;
+        opacity: 0;
+        z-index: 400;
+        -webkit-transition:all 2s  cubic-bezier(.86,.3,.03,1) , opacity .7s cubic-bezier(.86,.3,.47,1) .3s;
+        -moz-transition:all 2s  cubic-bezier(.86,.3,.03,1) , opacity .7s cubic-bezier(.86,.3,.47,1) .3s;
+        -o-transition:all 2s  cubic-bezier(.86,.3,.03,1) , opacity .7s cubic-bezier(.86,.3,.47,1) .3s;
+        transition:all 2s  cubic-bezier(.86,.3,.03,1) , opacity .7s cubic-bezier(.86,.3,.47,1) .3s;
+    }
+    .img.active{
+        right:0;
+        opacity: 1;
+        z-index: 500;
+    }
+    /*Heroes Imagen*/
+    .ada{
+        background: #fff url(https://www.bbvaopenmind.com/wp-content/uploads/2015/12/Ada_Lovelace_Chalon_portrait-1-1024x1024-1.jpg);
+        
+    }
+    .betty{
+        background: #fff url(https://1.bp.blogspot.com/-WbwbkBSdovs/VvmZNoXt0YI/AAAAAAAAHdc/n-6GBQ-Jw2kTqGkPpNZq679WxBcNVwOAw/s1600/Betty%2B%2Bholberton.%2B2jpg.jpg);
+    }
+    .alan{
+        background: #fff url(https://www.iwm.org.uk/sites/default/files/styles/text_with_media_desktop_1x/public/2018-01/npg_mw165875.jpg);
+    }
+    .tesla{
+        background: #fff url(http://www.escuelaindustrialesupm.com/wp-content/uploads/2012/02/h_.jpg);
+    }
+    .bill{
+        background: #fff url(https://upload.wikimedia.org/wikipedia/commons/thumb/1/19/Bill_Gates_June_2015.jpg/424px-Bill_Gates_June_2015.jpg);
+    }
+    .ruth{
+        background: #fff url(http://introductionsnecessary.com/wp-content/uploads/2016/02/2-20-Ruth-Teitlebaum-205x300.jpg);
+    }
+    .hopper{
+        background: #fff url(http://mujeresconciencia.com/app/uploads/2014/12/grace_hopper.jpg);
+    }
+
+    /*Temina Hereos imagen*/
+    #bg{
+	width: 100%;
+	height: 100%;
+	position: absolute;
+    }
+    .slide{
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        /*right: -100%;*/
+        opacity: 0;	
+        -webkit-transition:all 1.5s ease;
+        -moz-transition:all 1.5s ease;
+        -o-transition:all 1.5s ease;
+        transition:all 1.5s ease;	
+    }
+    .slide.active{
+        /*right: 0%;*/
+        opacity: 1;
+    }
+    /*Heroes Imagen*/
+    .ada-bg{
+        background: #fff url(https://www.bbvaopenmind.com/wp-content/uploads/2015/12/Ada_Lovelace_Chalon_portrait-1-1024x1024-1.jpg);
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+    }
+    .betty-bg{
+        background: #fff url(https://1.bp.blogspot.com/-WbwbkBSdovs/VvmZNoXt0YI/AAAAAAAAHdc/n-6GBQ-Jw2kTqGkPpNZq679WxBcNVwOAw/s1600/Betty%2B%2Bholberton.%2B2jpg.jpg);
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+    }
+    .alan-bg{
+        background: #fff url(https://www.iwm.org.uk/sites/default/files/styles/text_with_media_desktop_1x/public/2018-01/npg_mw165875.jpg);
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+    }
+    .tesla-bg{
+        background: #fff url(http://www.escuelaindustrialesupm.com/wp-content/uploads/2012/02/h_.jpg);
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+    }
+    .bill-bg{
+        background: #fff url(https://upload.wikimedia.org/wikipedia/commons/thumb/1/19/Bill_Gates_June_2015.jpg/424px-Bill_Gates_June_2015.jpg);
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+    }
+    .ruth-bg{
+        background: #fff url(http://introductionsnecessary.com/wp-content/uploads/2016/02/2-20-Ruth-Teitlebaum-205x300.jpg);
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+    }
+    .hopper-bg{
+        background: #fff url(http://mujeresconciencia.com/app/uploads/2014/12/grace_hopper.jpg);
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+    }
+    /*Terminado Heroes Imagen*/
+    @media screen and (max-width:700px){
+
+    #centerText p{
+        font-size: 20px;
+    }
+    }
+
+    @media screen and (max-width:580px){
+
+    #holder{
+    max-width: 700px;
+    width: 100%;
+    min-height: 360px;
+    height:100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: red;
+    margin: auto;
+    }
+    .img{
+    background-position:top center !important;
+    }
+    #image{
+    width: 220px;
+    height:250px;
+    float: left;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-top: -280px;
+    margin-left: -110px;
+    }
+    #right{
+    width: 100%;
+    height: 100%;
+    float: right;
+    position: relative;
+    background: blue;
+    }
+    #text{
+    width: 90%;
+    height: 320px;
+    position: absolute;
+    top: 150px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    }
+    #nav-cirlces{
+    display: none;
+    }
+    #centerText{
+    width: 100%;
+    height:200px;
+    position: absolute;
+    top: 50%;
+    margin-top:-100px;
+    padding: 150px 0!important;
+    overflow: hidden;
+    }
+
+    }
+
+    @media screen and (max-width:450px){
+    #image{
+    width: 200px;
+    height:230px;
+    float: left;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-top: -250px;
+    margin-left: -100px;
+    }
+
+    #text{
+    width: 100%;
+    height: 320px;
+    position: absolute;
+    top: 150px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    }
+    #nav-cirlces{
+    display: none;
+    }
+    #centerText{
+    width: 100%;
+    height:200px;
+    position: absolute;
+    top: 50%;
+    margin-top:-100px;
+    padding: 120px 0!important;
+    overflow: hidden;
+    }
+
+    }
+    .btn{
+    display: block;
+    color: #fff;
+    background: #0E7FFF;
+    text-decoration: none;
+    text-align: center;
+    padding: 8px 50px;
+    border-radius: 4px;
+    font-weight: bold;
+    margin: 0;
+    transition: all ease-in-out .5s;
+    }
+    .btn{
+            display: inline-block;
+            padding: .8em 3em;
+    }
+    </style>
+</head>
+
+<body translate="no" >
+        <footer>
+                <p>Made by <a href="https://twitter.com/calypso_bronte" target="_blank">Calypso Bronte</a> for <a href="https://www.holbertonschool.com" target="_blank">Holberton School</a>.</p>
+        </footer>
+<div id="container">
+        &nbsp;&nbsp;&nbsp;<a href="index.html" class="btn">Regresar 👈</a>
+    <div id="holder">
+
+        <div id="image">
+            <div class="img ada"></div>
+            <div class="img betty"></div>
+            <div class="img tesla"></div>
+            <div class="img bill"></div>
+            <div class="img ruth"></div>
+            <div class="img hopper"></div>
+            <div class="img alan active"></div>
+        </div>
+
+        <div id="right"></div>
+
+        <div id="text">
+            <div id="centerText">
+                <p class="quote">" Primera en reconocer que la máquina tenía aplicaciones más allá del cálculo puro, y publicó el primer algoritmo destinado a ser realizado por dicha máquina. " - Ada Lovelace</p>
+                <p class="quote">" Fue una de las seis programadoras originales de la primera computadora digital de propósito general ENIAC. " - Betty Snyder Holberton</p>
+                <p class="quote">" Inventor, ingeniero eléctrico, ingeniero mecánico, físico y futurista serbio-estadounidense, mejor conocido por sus contribuciones al diseño del moderno sistema de suministro de electricidad de corriente alterna. " - Nikola Tesla</p>
+                <p class="quote">" Tecnólogo, líder empresarial y filántropo, cofundador de la empresa de software Microsoft junto con Paul Allen. " - Bill Gates</p>
+                <p class="quote">" Una de las primera programadora en el mundo, trabajó manualmente calculando trayectorias balísticas - cálculos diferenciales complejos. Conciderada "computadoras humanas". " - Ruth Teitelbaum</p>
+                <p class="quote">" Pionera en el mundo de las ciencias de la computación, fue la primera programadora en utilizar el ordenador Mark I. y desarrollo el primer copilador en COBOL" - Grace Murray Hopper</p>
+                <p class="quote active">" Es considerado una de las piezas clave en el mundo de la computación, además de contribuir decisivamente en campos como la informática teórica y la criptografía. " - Alan Turing</p>
+            </div>
+
+            <nav>
+                <a id="leftBtn" class="prev">
+                    <i class="fa fa-arrow-left"></i>
+                </a>
+                <a id="rightBtn" class="next">
+                    <i class="fa fa-arrow-right"></i>
+                </a>
+            </nav>
+
+        </div>
+
+    </div>
+    
+    <div id="bg">
+        <div class="slide ada-bg"></div>
+        <div class="slide betty-bg"></div>
+        <div class="slide tesla-bg"></div>
+        <div class="slide bill-bg"></div>
+        <div class="slide ruth-bg"></div>
+        <div class="slide hopper-bg"></div>
+        <div class="slide alan-bg active"></div>
+    </div>
+
+    <div id="nav-cirlces">
+        
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle active"></div>
+                
+    </div> 
+    <div class="footer">
+            
+    <!--Facebook-->
+    <div id="fb-root"></div>
+    <script>(function(d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) return;
+    js = d.createElement(s); js.id = id;
+    js.src = 'https://connect.facebook.net/es_LA/sdk.js#xfbml=1&version=v3.2&appId=1899514836958307&autoLogAppEvents=1';
+    fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));</script>
+    <div class="fb-share-button" data-href="http://bit.ly/HeroesTIC" data-layout="button" data-size="large" data-mobile-iframe="true"><a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Fbit.ly%2FHeroesTIC&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore">Compartir</a></div>
+    <!--Twitter-->Made by <a href="https://twitter.com/calypso_bronte" target="_blank">Calypso Bronte</a> for <a href="https://www.holbertonschool.com" target="_blank">Holberton School</a>.
+        <a class="twitter-share-button btn"
+        href="https://twitter.com/intent/tweet"
+        data-size="large"
+        data-text="Héroes en tecnología y educación, @holbertonschool @HolbertonCOL"
+        data-url="http://bit.ly/HeroesTIC"
+        data-hashtags="Holberton,WomenInSTEM,WomenInTech,learntocode,HappySaturday,programming,coding,100DaysOfCode"
+        data-via="calypso_bronte"
+            data-related="twitterapi,twitter">
+            
+        </a>
+        <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+        </div>
+</div>
+
+ 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script>
+        $(window).load(function() {
+            $(".circle")
+                .first()
+                .addClass("active");
+            $("#bg .slide")
+                .first()
+                .addClass("active");
+            $("#image .img")
+                .first()
+                .addClass("active");
+            $(".quote")
+                .first()
+                .addClass("active");
+
+            var animate = setInterval(function() {
+                var $this = $(".circle"),
+                currentActiveBubble = $("#nav-cirlces").find(".active"),
+                position = $("#nav-cirlces")
+                    .children()
+                    .index(currentActiveBubble),
+                num = $(".circle").length;
+
+                if (position < num - 1) {
+                $(".active")
+                    .removeClass("active")
+                    .next()
+                    .addClass("active");
+                } else {
+                $(".circle")
+                    .removeClass("active")
+                    .first()
+                    .addClass("active");
+                $("#bg .slide")
+                    .removeClass("active")
+                    .first()
+                    .addClass("active");
+                $("#image .img")
+                    .removeClass("active")
+                    .first()
+                    .addClass("active");
+                $(".quote")
+                    .removeClass("active")
+                    .first()
+                    .addClass("active");
+                }
+                position++;
+            }, 4500);
+
+            $(".circle").click(function() {
+                clearInterval(animate);
+
+                var $this = $(this),
+                $siblings = $this.parent().children(),
+                position = $siblings.index($this);
+
+                $(".circle")
+                .removeClass("active")
+                .eq(position)
+                .addClass("active");
+                $("#bg .slide")
+                .removeClass("active")
+                .eq(position)
+                .addClass("active");
+                $("#image .img")
+                .removeClass("active")
+                .eq(position)
+                .addClass("active");
+                $(".quote")
+                .removeClass("active")
+                .eq(position)
+                .addClass("active");
+            });
+
+            $("#rightBtn , #leftBtn").click(function() {
+                clearInterval(animate);
+
+                var $this = $(this),
+                currentActiveBubble = $("#nav-cirlces").find(".active"),
+                position = $("#nav-cirlces")
+                    .children()
+                    .index(currentActiveBubble),
+                num = $(".circle").length;
+
+                if ($this.hasClass("next")) {
+                if (position < num - 1) {
+                    $(".active")
+                    .removeClass("active")
+                    .next()
+                    .addClass("active");
+                } else {
+                    $(".circle")
+                    .removeClass("active")
+                    .first()
+                    .addClass("active");
+                    $("#bg .slide")
+                    .removeClass("active")
+                    .first()
+                    .addClass("active");
+                    $("#image .img")
+                    .removeClass("active")
+                    .first()
+                    .addClass("active");
+                    $(".quote")
+                    .removeClass("active")
+                    .first()
+                    .addClass("active");
+                }
+                } else {
+                if (position === 0) {
+                    $(".circle")
+                    .removeClass("active")
+                    .last()
+                    .addClass("active");
+                    $("#bg .slide")
+                    .removeClass("active")
+                    .last()
+                    .addClass("active");
+                    $("#image .img")
+                    .removeClass("active")
+                    .last()
+                    .addClass("active");
+                    $(".quote")
+                    .removeClass("active")
+                    .last()
+                    .addClass("active");
+                } else {
+                    $(".active")
+                    .removeClass("active")
+                    .prev()
+                    .addClass("active");
+                }
+                }
+            });
+            });
+        </script>
+
+</body>
+</html>
